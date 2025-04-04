@@ -1,0 +1,16 @@
+{
+    "ClassName": "Folder",
+    "Children": [
+        {
+            "Name": "Spawner",
+            "ClassName": "Part",
+            "Properties": {
+                "Size": [1, 1, 1],
+                "CanCollide": false,
+                "CanTouch": false,
+                "CanQuery": false,
+                "Transparency": 1
+            }
+        }
+    ]
+}
