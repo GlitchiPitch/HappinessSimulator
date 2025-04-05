@@ -14,6 +14,7 @@ local function onCharacterAdded(player: Player,character: Model)
     local playerTycoon = playerStats.Tycoon.Value :: typeof(TycoonServiceAssets.Tycoon)?
     if playerTycoon then
         character:PivotTo(playerTycoon.Spawner.CFrame)
+        -- дефолтный спавн будет на улице
     end
 end
 
