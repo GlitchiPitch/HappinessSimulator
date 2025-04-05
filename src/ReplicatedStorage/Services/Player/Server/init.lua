@@ -6,6 +6,10 @@ local TycoonServiceAssets = TycoonService.Assets
 local tycoonServiceEvent = TycoonService.Events.Event
 local tycoonServiceEventActions = require(tycoonServiceEvent.Actions)
 
+local TutorialService = ReplicatedStorage.Services.Tutorial
+local tutorialServiceEvent = TutorialService.Events.Event
+local tutorialServiceEventActions = require(tutorialServiceEvent.Actions)
+
 local PlayerService = script.Parent
 local Assets = PlayerService.Assets
 
@@ -27,6 +31,7 @@ local function onPlayerAdded(player: Player)
     end
     
     tycoonServiceEvent:Fire(tycoonServiceEventActions.setTycoon, player)
+    tutorialServiceEvent:Fire(tutorialServiceEventActions.startTutorial, player)
     player.CharacterAdded:Connect(_onCharacterAdded)
 end
 local function initialize()
