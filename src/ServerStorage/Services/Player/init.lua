@@ -1,6 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 
+local logging = require(ReplicatedStorage.Utility.logging)
+
 local TycoonService = ReplicatedStorage.Services.Tycoon
 local TycoonServiceAssets = TycoonService.Assets
 local tycoonServiceEvent = TycoonService.Events.Event
@@ -10,7 +12,8 @@ local TutorialService = ReplicatedStorage.Services.Tutorial
 local tutorialServiceEvent = TutorialService.Events.Event
 local tutorialServiceEventActions = require(tutorialServiceEvent.Actions)
 
-local PlayerService = script.Parent
+local PlayerService = ReplicatedStorage.Services.Player
+local Constants = require(script.Constants)
 local Assets = PlayerService.Assets
 
 local function onCharacterAdded(player: Player,character: Model)
@@ -34,7 +37,9 @@ local function onPlayerAdded(player: Player)
     tutorialServiceEvent:Fire(tutorialServiceEventActions.startTutorial, player)
     player.CharacterAdded:Connect(_onCharacterAdded)
 end
+
 local function initialize()
+    logging(Constants.SERVICE_NAME, `VERSION : {Constants.VERSION}`)
     Players.PlayerAdded:Connect(onPlayerAdded)
 end
 
